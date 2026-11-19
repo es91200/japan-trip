@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌸 日本冬季之旅 2026–27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Huninn&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FFFCF6;
+    --ink: #3E3A39;
+    --coral: #F2A497;
+    --yellow: #F6D27A;
+    --blue: #A8D3E6;
+    --green: #B9DAA5;
+    --radius: 18px;
+    --border: 3px solid #3E3A39;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Huninn', 'Noto Sans TC', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+  .nav-logo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 0.78rem;
+    padding: 5px 10px;
+    border-radius: 999px;
+    border: 2px solid var(--ink);
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .nav-links a:hover { background: var(--yellow); }
+
+  /* ===== SECTIONS ===== */
+  section {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 32px 16px;
+  }
+  .section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 3px;
+    background: var(--ink);
+    border-radius: 2px;
+    margin-left: 8px;
+  }
+
+  /* ===== HERO ===== */
+  #hero {
+    padding-top: 90px;
+    text-align: center;
+  }
+  .hero-svg-wrap {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 20px;
+  }
+  .hero-title {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+  .hero-sub {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 24px;
+  }
+  .countdown-box {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--coral);
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: 16px 36px;
+  }
+  .countdown-num {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .countdown-label { font-size: 0.9rem; margin-top: 4px; }
+
+  /* ===== FLIGHT CARDS ===== */
+  .flight-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media(max-width: 500px) { .flight-cards { grid-template-columns: 1fr; } }
+  .flight-card {
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+    background: var(--blue);
+    position: relative;
+    overflow: hidden;
+  }
+  .flight-card.return { background: var(--green); }
+  .flight-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 999px;
+    padding: 2px 10px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .flight-num {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .flight-route {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  .flight-arrow { font-size: 1.2rem; }
+  .flight-times {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #555;
+  }
+  .flight-plane-svg {
+    position: absolute;
+    right: 12px; bottom: 12px;
+    opacity: 0.18;
+    width: 60px;
+  }
+
+  /* ===== DAY TABS ===== */
+  .day-tabs-wrap {
+    overflow-x: auto;
+    padding-bottom: 8px;
+    margin-bottom: 24px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .day-tabs {
+    display: flex;
+    gap: 8px;
+    width: max-content;
+  }
+  .day-tab {
+    border: var(--border);
+    border-radius: 999px;
+    padding: 7px 16px;
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-family: 'Huninn', sans-serif;
+    background: var(--bg);
+    transition: background 0.15s, transform 0.15s;
+    white-space: nowrap;
+    font-weight: 600;
+  }
+  .day-tab:hover { background: var(--yellow); }
+  .day-tab.active {
+    background: var(--yellow);
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .day-tab.active { transform: translateY(-2px); }
+  }
+
+  /* ===== TIMELINE ===== */
+  .day-panel { display: none; }
+  .day-panel.active { display: block; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .day-panel.active {
+      animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+  }
+  @keyframes popIn {
+    from { opacity: 0; transform: scale(0.95) translateY(10px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  .day-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .day-date-badge {
+    background: var(--coral);
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: 8px 18px;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .day-hotel {
+    font-size: 0.85rem;
+    color: #666;
+  }
+  .day-hotel span {
+    background: var(--green);
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    padding: 2px 10px;
+    font-size: 0.78rem;
+    color: var(--ink);
+    display: inline-block;
+    margin-top: 3px;
+  }
+
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--ink);
+    border-radius: 2px;
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .tl-dot {
+    position: absolute;
+    left: -27px; top: 6px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    border: 3px solid var(--ink);
+    background: var(--yellow);
+  }
+  .tl-card {
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    background: var(--bg);
+    transition: box-shadow 0.15s;
+  }
+  .tl-card:hover { box-shadow: 4px 4px 0 var(--ink); }
+  .tl-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+  }
+  .tl-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    flex: 1;
+  }
+  .must-go {
+    background: var(--coral);
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    white-space: nowrap;
+  }
+  .tag {
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 999px;
+    border: 2px solid var(--ink);
+    white-space: nowrap;
+  }
+  .tag-flight { background: var(--blue); }
+  .tag-train  { background: var(--yellow); }
+  .tag-car    { background: var(--green); }
+  .tag-walk   { background: var(--coral); }
+  .tag-bus    { background: #D9B8E8; }
+  .tl-note {
+    font-size: 0.78rem;
+    color: #666;
+    margin-top: 4px;
+  }
+
+  /* ===== CARDS GRID ===== */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media(max-width: 500px) { .cards-grid { grid-template-columns: 1fr; } }
+  .info-card {
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    background: var(--bg);
+  }
+  .info-card-title {
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .hotel-item {
+    border-bottom: 2px dashed #ccc;
+    padding: 10px 0;
+    font-size: 0.82rem;
+  }
+  .hotel-item:last-child { border-bottom: none; }
+  .hotel-name { font-weight: 700; margin-bottom: 2px; }
+  .hotel-dates { color: #777; font-size: 0.75rem; }
+
+  /* ===== TODO / CHECKLIST ===== */
+  .checklist {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  @media(max-width: 500px) { .checklist { grid-template-columns: 1fr; } }
+  .checklist li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: var(--border);
+    border-radius: 12px;
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: background 0.15s;
+    font-size: 0.85rem;
+  }
+  .checklist li:hover { background: #f5f0e8; }
+  .checklist li.checked {
+    background: var(--green);
+    text-decoration: line-through;
+    opacity: 0.75;
+  }
+  .check-box {
+    width: 20px; height: 20px;
+    border: 3px solid var(--ink);
+    border-radius: 6px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+  }
+  .checklist li.checked .check-box::after { content: '✓'; }
+
+  /* ===== LUGGAGE ===== */
+  .luggage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+  }
+  .luggage-category {
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: 14px;
+    background: var(--bg);
+  }
+  .luggage-cat-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .luggage-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 0;
+    cursor: pointer;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    transition: background 0.1s;
+  }
+  .luggage-item:hover { background: #f5f0e8; }
+  .luggage-item.checked { text-decoration: line-through; opacity: 0.6; }
+  .lug-box {
+    width: 16px; height: 16px;
+    border: 2.5px solid var(--ink);
+    border-radius: 4px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+  }
+  .luggage-item.checked .lug-box::after { content: '✓'; }
+
+  /* ===== TIPS ===== */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .tip-card {
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    background: var(--yellow);
+  }
+  .tip-title { font-weight: 700; margin-bottom: 6px; font-size: 0.9rem; }
+  .tip-body { font-size: 0.82rem; line-height: 1.7; white-space: pre-line; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    text-align: center;
+    padding: 32px 16px;
+    font-size: 0.78rem;
+    color: #aaa;
+    border-top: var(--border);
+    margin-top: 32px;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @media (prefers-reduced-motion: no-preference) {
+    .float-anim { animation: floatBob 4s ease-in-out infinite; }
+    .float-anim-slow { animation: floatBob 6s ease-in-out infinite; }
+    .float-anim-med { animation: floatBob 5s ease-in-out 0.5s infinite; }
+    @keyframes floatBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .spin-slow { animation: spinSlow 20s linear infinite; }
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  }
+
+  /* scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--ink); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <div class="nav-logo">
+    <svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="13" fill="#F6D27A" stroke="#3E3A39" stroke-width="2.5"/><text x="14" y="19" text-anchor="middle" font-size="13" fill="#3E3A39">🌸</text></svg>
+    日本冬之旅
+  </div>
+  <div class="nav-links">
+    <a href="#hero">首頁</a>
+    <a href="#flights">航班</a>
+    <a href="#itinerary">行程</a>
+    <a href="#hotels">住宿</a>
+    <a href="#checklist">待辦</a>
+    <a href="#luggage">行李</a>
+    <a href="#tips">出發前</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-svg-wrap">
+    <!-- Hero SVG: Mount Fuji + Torii + Snow -->
+    <svg viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg">
+      <!-- Sky -->
+      <rect width="420" height="260" rx="20" fill="#EEF7FB" stroke="#3E3A39" stroke-width="3"/>
+      <!-- Snow clouds -->
+      <ellipse cx="60" cy="45" rx="38" ry="20" fill="white" stroke="#3E3A39" stroke-width="2.5" class="float-anim-slow"/>
+      <ellipse cx="85" cy="38" rx="25" ry="17" fill="white" stroke="#3E3A39" stroke-width="2.5" class="float-anim-slow"/>
+      <ellipse cx="340" cy="50" rx="40" ry="18" fill="white" stroke="#3E3A39" stroke-width="2.5" class="float-anim-med"/>
+      <ellipse cx="368" cy="43" rx="25" ry="15" fill="white" stroke="#3E3A39" stroke-width="2.5" class="float-anim-med"/>
+      <!-- Sun -->
+      <circle cx="370" cy="55" r="28" fill="#F6D27A" stroke="#3E3A39" stroke-width="2.5" class="spin-slow"/>
+      <line x1="370" y1="20" x2="370" y2="12" stroke="#3E3A39" stroke-width="2" stroke-linecap="round"/>
+      <line x1="395" y1="30" x2="401" y2="24" stroke="#3E3A39" stroke-width="2" stroke-linecap="round"/>
+      <line x1="405" y1="55" x2="413" y2="55" stroke="#3E3A39" stroke-width="2" stroke-linecap="round"/>
+      <line x1="395" y1="80" x2="401" y2="86" stroke="#3E3A39" stroke-width="2" stroke-linecap="round"/>
+      <!-- Mount Fuji -->
+      <polygon points="210,60 290,200 130,200" fill="#B9DAA5" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+      <!-- Fuji snow cap -->
+      <polygon points="210,60 235,110 185,110" fill="white" stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round"/>
+      <!-- Ground -->
+      <rect x="0" y="200" width="420" height="60" rx="0" fill="#A8D3E6" stroke="none"/>
+      <rect x="0" y="195" width="420" height="12" fill="white" stroke="none"/>
+      <!-- Torii Gate - left -->
+      <rect x="80" y="140" width="8" height="65" rx="3" fill="#F2A497" stroke="#3E3A39" stroke-width="2.5"/>
+      <rect x="118" y="140" width="8" height="65" rx="3" fill="#F2A497" stroke="#3E3A39" stroke-width="2.5"/>
+      <rect x="72" y="138" width="82" height="10" rx="4" fill="#F2A497" stroke="#3E3A39" stroke-width="2.5"/>
+      <rect x="78" y="152" width="50" height="8" rx="3" fill="#F2A497" stroke="#3E3A39" stroke-width="2.5"/>
+      <!-- hanging sign -->
+      <rect x="98" y="162" width="10" height="14" rx="2" fill="#F6D27A" stroke="#3E3A39" stroke-width="2"/>
+      <!-- Torii Gate - right -->
+      <rect x="300" y="145" width="7" height="58" rx="3" fill="#F2A497" stroke="#3E3A39" stroke-width="2.5"/>
+      <rect x="333" y="145" width="7" height="58" rx="3" fill="#F2A497" stroke="#3E3A39" stroke-width="2.5"/>
+      <rect x="293" y="143" width="54" height="9" rx="4" fill="#F2A497" stroke="#3E3A39" stroke-width="2.5"/>
+      <rect x="298" y="155" width="44" height="7" rx="3" fill="#F2A497" stroke="#3E3A39" stroke-width="2.5"/>
+      <!-- Pine trees -->
+      <polygon points="168,165 178,195 158,195" fill="#B9DAA5" stroke="#3E3A39" stroke-width="2.5"/>
+      <rect x="165" y="195" width="6" height="10" rx="2" fill="#A87D5F" stroke="#3E3A39" stroke-width="2"/>
+      <polygon points="258,160 270,195 246,195" fill="#B9DAA5" stroke="#3E3A39" stroke-width="2.5"/>
+      <rect x="255" y="195" width="6" height="10" rx="2" fill="#A87D5F" stroke="#3E3A39" stroke-width="2"/>
+      <!-- Snow flakes -->
+      <text x="30" y="90" font-size="14" fill="#A8D3E6" class="float-anim">❄</text>
+      <text x="390" y="110" font-size="10" fill="#A8D3E6" class="float-anim-med">❄</text>
+      <text x="200" y="30" font-size="12" fill="#A8D3E6" class="float-anim-slow">❄</text>
+      <!-- Plane -->
+      <g class="float-anim" style="transform-origin:50px 100px">
+        <text x="10" y="105" font-size="22" fill="#3E3A39">✈</text>
+      </g>
+      <!-- Water ripples -->
+      <ellipse cx="140" cy="225" rx="30" ry="6" fill="none" stroke="white" stroke-width="2" opacity="0.6"/>
+      <ellipse cx="310" cy="230" rx="22" ry="5" fill="none" stroke="white" stroke-width="2" opacity="0.6"/>
+    </svg>
+  </div>
+
+  <div class="hero-title">🌸 日本冬季之旅</div>
+  <div class="hero-sub">2026 年 12 月 23 日 ～ 2027 年 1 月 5 日</div>
+  <div class="countdown-box">
+    <div class="countdown-num" id="countdown-num">?</div>
+    <div class="countdown-label">距離出發還有 <span id="countdown-unit">天</span></div>
+  </div>
+</section>
+
+<!-- ===== FLIGHTS ===== -->
+<section id="flights">
+  <div class="section-title">✈️ 航班資訊</div>
+  <div class="flight-cards">
+    <div class="flight-card">
+      <div class="flight-badge">去程</div>
+      <div class="flight-num">CX 450</div>
+      <div class="flight-route">
+        <span>🇹🇼 台灣 T1</span>
+        <span class="flight-arrow">→</span>
+        <span>🇯🇵 成田 T2</span>
+      </div>
+      <div class="flight-times">
+        <span>🛫 12:50 出發</span>
+        <span>🛬 16:50 抵達</span>
+      </div>
+      <div class="flight-times" style="margin-top:4px">
+        <span>📅 2026 / 12 / 23</span>
+      </div>
+      <svg class="flight-plane-svg" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+        <text x="5" y="45" font-size="40" fill="#3E3A39">✈</text>
+      </svg>
+    </div>
+    <div class="flight-card return">
+      <div class="flight-badge">回程</div>
+      <div class="flight-num">CX 451</div>
+      <div class="flight-route">
+        <span>🇯🇵 成田 T2</span>
+        <span class="flight-arrow">→</span>
+        <span>🇹🇼 台灣 T1</span>
+      </div>
+      <div class="flight-times">
+        <span>🛫 15:30 出發</span>
+        <span>🛬 18:40 抵達</span>
+      </div>
+      <div class="flight-times" style="margin-top:4px">
+        <span>📅 2027 / 01 / 05</span>
+      </div>
+      <svg class="flight-plane-svg" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+        <text x="5" y="45" font-size="40" fill="#3E3A39">✈</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ITINERARY ===== -->
+<section id="itinerary">
+  <div class="section-title">🗓 每日行程</div>
+  <div class="day-tabs-wrap">
+    <div class="day-tabs" id="dayTabs"></div>
+  </div>
+  <div id="dayPanels"></div>
+</section>
+
+<!-- ===== HOTELS ===== -->
+<section id="hotels">
+  <div class="section-title">🏨 住宿資訊</div>
+  <div class="cards-grid">
+    <div class="info-card" style="grid-column:1/-1">
+      <div class="info-card-title">🛏 住宿一覽</div>
+      <div id="hotel-list"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CHECKLIST ===== -->
+<section id="checklist">
+  <div class="section-title">✅ 旅行待辦清單</div>
+  <ul class="checklist" id="todoList">
+    <li onclick="toggleCheck(this,'todo-0')"><div class="check-box"></div>購買 CX450 / CX451 機票</li>
+    <li onclick="toggleCheck(this,'todo-1')"><div class="check-box"></div>訂東京迪士尼門票 + 下 App</li>
+    <li onclick="toggleCheck(this,'todo-2')"><div class="check-box"></div>預訂裏磐梯湖畔渡假村（一泊二食）</li>
+    <li onclick="toggleCheck(this,'todo-3')"><div class="check-box"></div>預訂東橫 INN 那須鹽原站西口</li>
+    <li onclick="toggleCheck(this,'todo-4')"><div class="check-box"></div>預訂宇都宮里士滿酒店</li>
+    <li onclick="toggleCheck(this,'todo-5')"><div class="check-box"></div>預訂東日本橋舒適酒店（全程）</li>
+    <li onclick="toggleCheck(this,'todo-6')"><div class="check-box"></div>租車（需含雪胎）船橋集合</li>
+    <li onclick="toggleCheck(this,'todo-7')"><div class="check-box"></div>購買滑雪裝備 / 雪鞋（yodobashi）</li>
+    <li onclick="toggleCheck(this,'todo-8')"><div class="check-box"></div>申辦 UQ 電話卡 / SIM 卡</li>
+    <li onclick="toggleCheck(this,'todo-9')"><div class="check-box"></div>換日幣</li>
+    <li onclick="toggleCheck(this,'todo-10')"><div class="check-box"></div>購買 Suica 或 ICOCA 卡</li>
+    <li onclick="toggleCheck(this,'todo-11')"><div class="check-box"></div>查京成 Skyliner 時刻表（成田→東京）</li>
+    <li onclick="toggleCheck(this,'todo-12')"><div class="check-box"></div>安裝 Google Maps 離線地圖</li>
+    <li onclick="toggleCheck(this,'todo-13')"><div class="check-box"></div>安裝 Google 翻譯（日語離線包）</li>
+    <li onclick="toggleCheck(this,'todo-14')"><div class="check-box"></div>查大谷資料館預約（12/31）</li>
+    <li onclick="toggleCheck(this,'todo-15')"><div class="check-box"></div>查江之島電車一日券購買方式</li>
+    <li onclick="toggleCheck(this,'todo-16')"><div class="check-box"></div>查大宮鐵道博物館門票（1/4）</li>
+    <li onclick="toggleCheck(this,'todo-17')"><div class="check-box"></div>購買旅遊保險</li>
+    <li onclick="toggleCheck(this,'todo-18')"><div class="check-box"></div>列印行程與訂房確認信</li>
+    <li onclick="toggleCheck(this,'todo-19')"><div class="check-box"></div>下載 Tabelog / 食べログ 查餐廳</li>
+  </ul>
+</section>
+
+<!-- ===== LUGGAGE ===== -->
+<section id="luggage">
+  <div class="section-title">🧳 行李清單</div>
+  <div class="luggage-grid" id="luggageGrid"></div>
+</section>
+
+<!-- ===== TIPS ===== -->
+<section id="tips">
+  <div class="section-title">📋 出發前注意事項</div>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-title">🥾 防滑鞋具必備</div>
+      <div class="tip-body">三地（尤其是大內宿階梯與日光神社參道）常有路面結冰（黑冰）狀況，建議穿著防水防滑的雪靴，或加裝簡易冰爪。</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">🧅 洋蔥式防風穿搭</div>
+      <div class="tip-body">日本室內暖氣極強，建議內層穿發熱衣與毛衣，外層搭配防風防水的厚羽絨外套，並備齊毛帽、圍巾與手套。</div>
+    </div>
+    <div class="tip-card" style="background:var(--coral)">
+      <div class="tip-title">⚠️ 跨年晚餐提醒</div>
+      <div class="tip-body">12/31 晚上宇都宮大部分餐廳（包含餃子店）可能在 18:00 ～ 20:00 就全面打烊，請提早安排晚餐！備選：焼肉レストラン 阿吾羅。</div>
+    </div>
+    <div class="tip-card" style="background:var(--blue)">
+      <div class="tip-title">🚗 交通與營業時間確認</div>
+      <div class="tip-body">12 月底適逢日本年末假期，部分餐廳提早公休。租車自駕務必預約配備雪胎的車輛，提前確認各景點停車資訊。</div>
+    </div>
+    <div class="tip-card" style="background:var(--green)">
+      <div class="tip-title">🗾 景點速覽</div>
+      <div class="tip-body">
+日光東照宮：關東知名神社，2017年完成40年最大修復，「陽明門」工程超過10億日元，必看「三猿」、「睡貓」、「鳴龍」。
+
+大內宿：江戶時代驛站，47幢茅草屋，與合掌村、美山町並稱茅屋之里，1981年列為國家重要傳統建造物群保存區。
+
+華嚴瀑布：日本三大瀑布之一，97公尺高差，四季美景各有特色。
+
+中禪寺湖：栃木縣最大湖泊，湖水清澈如鏡，可遠眺男體山倒影。</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  🌸 日本冬季之旅 2026–27 ・ 旅遊行程規劃網頁 ・ 資料來源：japan_trip_final
+</footer>
+
+<script>
+// ===== ITINERARY DATA =====
+const itinerary = [
+  {
+    date: "12/23", dow: "二", year: 2026,
+    accommodation: "東日本橋舒適酒店",
+    color: "coral",
+    items: [
+      { name: "12:50 台灣 T1 出發 → CX450", tags: ["flight"], mustGo: false, note: "" },
+      { name: "16:50 抵達成田 T2", tags: ["flight"], mustGo: false, note: "京成 Skyliner 18:07→19:21 / 18:33→19:34 / 19:18→20:24" },
+      { name: "京成 Skyliner 前往飯店", tags: ["train"], mustGo: false, note: "" },
+      { name: "UQ 友都八喜秋葉原 辦門號 + 晚餐", tags: ["walk"], mustGo: true, note: "🍚 備選：天丼天雅 人形町店 → OK Store" },
+    ]
+  },
+  {
+    date: "12/24", dow: "三", year: 2026,
+    accommodation: "東日本橋舒適酒店",
+    color: "blue",
+    items: [
+      { name: "東京迪士尼樂園 🎄 聖誕特別活動", tags: ["train"], mustGo: true, note: "記得提前購票、下載 Tokyo Disney Resort App" },
+      { name: "怪獸電力公司 / 美女與野獸", tags: ["walk"], mustGo: true, note: "⭐ 人氣必玩設施" },
+      { name: "小熊維尼 / 米奇魔法音樂世界", tags: ["walk"], mustGo: false, note: "" },
+      { name: "The D-Groovationz 4 / 玩具奇妙聖誕", tags: ["walk"], mustGo: false, note: "🎭 聖誕限定演出" },
+    ]
+  },
+  {
+    date: "12/25", dow: "四", year: 2026,
+    accommodation: "東日本橋舒適酒店",
+    color: "yellow",
+    items: [
+      { name: "Beaver Bread 早餐", tags: ["walk"], mustGo: false, note: "" },
+      { name: "秋葉原 牛奶造型帽子車站周邊", tags: ["train"], mustGo: false, note: "" },
+      { name: "Yodobashi Camera（玩具 / UQ / 雪鞋）", tags: ["walk"], mustGo: true, note: "順便辦 UQ 電話卡" },
+      { name: "鐵路雜貨鋪 → 書泉（鐵道迷必逛）", tags: ["walk"], mustGo: false, note: "" },
+      { name: "大丸 ete 百貨", tags: ["walk"], mustGo: false, note: "" },
+      { name: "montbell 京橋 / Uniqlo", tags: ["walk"], mustGo: false, note: "採買保暖裝備" },
+      { name: "SHAKE SHACK 晚餐", tags: ["walk"], mustGo: false, note: "備選：GENERAL STORE / 靴の丸善 浅草" },
+    ]
+  },
+  {
+    date: "12/26", dow: "六", year: 2026,
+    accommodation: "東橫 INN 那須鹽原站西口",
+    color: "green",
+    items: [
+      { name: "小網神社 🌸 祈福", tags: ["walk"], mustGo: true, note: "東京「都心的小屋神社」，求財運、戀愛運" },
+      { name: "人形燒採購", tags: ["walk"], mustGo: false, note: "🍡 人形町傳統和菓子" },
+      { name: "Sucre rie 甜點", tags: ["walk"], mustGo: false, note: "" },
+      { name: "森乃園 抹茶甜點", tags: ["walk"], mustGo: false, note: "🍵 人形町老店" },
+      { name: "回飯店拿行李", tags: ["walk"], mustGo: false, note: "" },
+      { name: "船橋集合・租車前往那須", tags: ["car"], mustGo: false, note: "途經蓮田服務區 / 羽生服務區（上行）" },
+      { name: "CHECK IN 東橫 INN 那須鹽原", tags: ["car"], mustGo: false, note: "" },
+      { name: "Aeon Town / 那須花園暢貨中心", tags: ["car"], mustGo: false, note: "🛍 採購戰利品" },
+    ]
+  },
+  {
+    date: "12/27", dow: "日", year: 2026,
+    accommodation: "裏磐梯湖畔渡假村（一泊二食）",
+    color: "coral",
+    items: [
+      { name: "那須 → 大內宿", tags: ["car"], mustGo: true, note: "江戶時代茅草屋驛站村落，日本重要傳統建造物群保存區" },
+      { name: "午餐（壽司郎 / 吉野家 / 喜多方）", tags: ["car"], mustGo: false, note: "備選：Nimaruya Musashitei 蕎麥麵 / Nakajima 豬排飯" },
+      { name: "會津若松城（鶴ヶ城）", tags: ["car"], mustGo: true, note: "🏯 日本百名城之一" },
+      { name: "TARO CAFE 下午茶", tags: ["car"], mustGo: false, note: "" },
+      { name: "裏磐梯湖畔渡假村 CHECK IN", tags: ["car"], mustGo: false, note: "一泊二食，豪華溫泉晚餐" },
+    ]
+  },
+  {
+    date: "12/28", dow: "一", year: 2026,
+    accommodation: "裏磐梯湖畔渡假村（一泊二食）",
+    color: "blue",
+    items: [
+      { name: "滑雪體驗 ⛷", tags: ["walk"], mustGo: true, note: "裏磐梯雪場，備齊雪具" },
+      { name: "飯店溫泉 & 休息", tags: ["walk"], mustGo: false, note: "享受一泊二食餐點" },
+    ]
+  },
+  {
+    date: "12/29", dow: "二", year: 2026,
+    accommodation: "東橫 INN 那須鹽原站西口",
+    color: "yellow",
+    items: [
+      { name: "Chansey Park", tags: ["car"], mustGo: false, note: "" },
+      { name: "小池菓子舖", tags: ["car"], mustGo: false, note: "🍡 和菓子" },
+      { name: "尾瀬街道みしま宿（道之驛）", tags: ["car"], mustGo: false, note: "備選：カフェレストラン 洋燈" },
+      { name: "箱之森遊戲公園 🎪", tags: ["car"], mustGo: false, note: "森林裡的木製遊樂設施" },
+      { name: "Kamahiko 午餐", tags: ["car"], mustGo: false, note: "" },
+      { name: "湯っ歩 足湯", tags: ["walk"], mustGo: true, note: "🦶 戶外足湯，放鬆腳步" },
+      { name: "Cheese Garden Shiobara Coffee", tags: ["car"], mustGo: false, note: "🧀 超人氣起司蛋糕" },
+      { name: "返回那須鹽原", tags: ["car"], mustGo: false, note: "" },
+    ]
+  },
+  {
+    date: "12/30", dow: "三", year: 2026,
+    accommodation: "東橫 INN 那須鹽原站西口",
+    color: "green",
+    items: [
+      { name: "採草莓體驗 🍓", tags: ["car"], mustGo: true, note: "Strawberry Forest（需預約）" },
+      { name: "Cheese Garden（再訪 or 購物）", tags: ["car"], mustGo: false, note: "" },
+      { name: "殺生石 🪨", tags: ["car"], mustGo: true, note: "傳說中九尾狐化身之地，2022年自然裂開！" },
+      { name: "那須 北匠庵 午餐", tags: ["car"], mustGo: false, note: "" },
+      { name: "Penny Lane Bakery", tags: ["car"], mustGo: false, note: "🍞 甲殼蟲樂團主題麵包店" },
+      { name: "南ヶ丘牧場", tags: ["car"], mustGo: false, note: "🐄 牧場體驗、霜淇淋" },
+      { name: "黑磯站東口文青散步圈 ☕", tags: ["walk"], mustGo: true, note: "1988 CAFE SHOZO 等個性咖啡館聚集地" },
+    ]
+  },
+  {
+    date: "12/31", dow: "四", year: 2026,
+    accommodation: "宇都宮站前里士滿酒店附樓",
+    color: "coral",
+    items: [
+      { name: "南ヶ丘牧場（早晨）", tags: ["car"], mustGo: false, note: "" },
+      { name: "鬼怒川 Bishamon", tags: ["car"], mustGo: false, note: "" },
+      { name: "大谷資料館 🗿", tags: ["car"], mustGo: true, note: "巨大地下採石場，溫度常年約 8°C，建議帶薄外套" },
+      { name: "むさしの森珈琲 下午茶", tags: ["car"], mustGo: false, note: "" },
+      { name: "跨年晚餐 🎊", tags: ["walk"], mustGo: false, note: "⚠️ 注意！宇都宮大部分餐廳18:00~20:00打烊。備選：焼肉レストラン 阿吾羅" },
+    ]
+  },
+  {
+    date: "1/1", dow: "五", year: 2027,
+    accommodation: "宇都宮站前里士滿酒店附樓",
+    color: "yellow",
+    items: [
+      { name: "日光東照宮 ⛩", tags: ["car"], mustGo: true, note: "2017年修復完成，必看陽明門、三猿、睡貓、鳴龍" },
+      { name: "神橋", tags: ["walk"], mustGo: false, note: "朱紅色木橋，日本三大奇橋之一" },
+      { name: "伊呂坡山道（途經）", tags: ["car"], mustGo: false, note: "頭文字 D 聖地！48 個髮夾彎" },
+      { name: "華嚴瀑布 💧", tags: ["car"], mustGo: true, note: "日本三大瀑布，97 公尺高差，震撼壯觀" },
+      { name: "中禪寺湖 🏔", tags: ["walk"], mustGo: true, note: "栃木縣最大湖泊，湖如天鏡，倒映男體山" },
+      { name: "二荒山神社", tags: ["walk"], mustGo: false, note: "新年初詣，祈求新年好運！" },
+    ]
+  },
+  {
+    date: "1/2", dow: "六", year: 2027,
+    accommodation: "東日本橋舒適酒店",
+    color: "blue",
+    items: [
+      { name: "還車（12:00 東京）", tags: ["car"], mustGo: false, note: "" },
+      { name: "回飯店放行李", tags: ["walk"], mustGo: false, note: "" },
+      { name: "Olinas 錦糸町購物中心", tags: ["train"], mustGo: false, note: "" },
+      { name: "ROPÉ PICNIC / mji / life 超市採買", tags: ["walk"], mustGo: false, note: "🛒 最後衝刺採購伴手禮" },
+    ]
+  },
+  {
+    date: "1/3", dow: "日", year: 2027,
+    accommodation: "東日本橋舒適酒店",
+    color: "green",
+    items: [
+      { name: "鎌倉紅谷 小町橫路店 ☕", tags: ["train"], mustGo: true, note: "人氣和洋折衷點心" },
+      { name: "大佛燒 🤤", tags: ["walk"], mustGo: false, note: "鎌倉大佛造型鯛魚燒" },
+      { name: "鶴岡八幡宮 ⛩", tags: ["walk"], mustGo: true, note: "鎌倉最重要神社，新年初詣人潮洶湧" },
+      { name: "若宮大路土產街", tags: ["walk"], mustGo: false, note: "伴手禮最後補貨！" },
+      { name: "江之島電車 🚃", tags: ["train"], mustGo: true, note: "憑江之島電車一日券，沿途海景美不勝收" },
+      { name: "藤澤駅回東京", tags: ["train"], mustGo: false, note: "" },
+    ]
+  },
+  {
+    date: "1/4", dow: "一", year: 2027,
+    accommodation: "東日本橋舒適酒店",
+    color: "coral",
+    items: [
+      { name: "大宮鐵道博物館 🚂", tags: ["train"], mustGo: true, note: "日本最大鐵道博物館，鐵道迷必訪！" },
+      { name: "博物館內午餐", tags: ["walk"], mustGo: false, note: "" },
+      { name: "下午自由活動（待安排）", tags: ["walk"], mustGo: false, note: "🗒 行程未排，可補充購物或散策" },
+    ]
+  },
+  {
+    date: "1/5", dow: "二", year: 2027,
+    accommodation: "🏠 回台灣",
+    color: "blue",
+    items: [
+      { name: "前往成田機場 T2", tags: ["train"], mustGo: false, note: "請提早 3 小時抵達" },
+      { name: "15:30 CX451 起飛", tags: ["flight"], mustGo: false, note: "" },
+      { name: "18:40 台灣 T1 抵達 🎉", tags: ["flight"], mustGo: false, note: "回家囉！" },
+    ]
+  },
+];
+
+// ===== HOTEL DATA =====
+const hotels = [
+  { name: "東日本橋舒適酒店", dates: "12/23–26、1/2–5", note: "東京市區，JR 馬喰町站步行可達" },
+  { name: "東橫 INN 那須鹽原站西口", dates: "12/26–27、12/29–31", note: "那須鹽原自駕基地" },
+  { name: "裏磐梯湖畔渡假村", dates: "12/27–29（一泊二食 ×2）", note: "溫泉＋全餐制，含滑雪場鄰近" },
+  { name: "宇都宮站前里士滿酒店附樓", dates: "12/31–1/2", note: "宇都宮市中心，日光觀光便利" },
+];
+
+// ===== LUGGAGE DATA =====
+const luggage = [
+  { category: "🛂 證件", items: ["護照（有效期>6個月）","備份護照影本","回程機票列印","訂房確認信","緊急聯絡卡","國際駕照（租車用）"] },
+  { category: "💴 金錢", items: ["日幣現金","信用卡（海外刷卡）","Suica 卡","UQ / SIM 卡"] },
+  { category: "🧥 保暖衣物", items: ["發熱衣（2件以上）","毛衣 / 厚上衣","羽絨外套","防風防水外層","保暖長褲","毛帽","圍巾","手套","厚襪子（3雙+）"] },
+  { category: "👟 鞋類", items: ["防水防滑雪靴","簡易冰爪（備用）","室內拖鞋"] },
+  { category: "🎿 滑雪", items: ["雪褲（若未租）","滑雪手套","護目鏡","安全帽（若未租）","防曬乳 SPF50+"] },
+  { category: "💊 醫藥", items: ["感冒藥","胃腸藥","暈車藥","OK繃","體溫計","保濕護唇膏","護手霜"] },
+  { category: "🔌 3C", items: ["手機充電線","行動電源","相機+記憶卡","轉接插頭（日本2孔A型）","耳機"] },
+  { category: "🧴 盥洗", items: ["洗面乳","牙刷牙膏","洗髮精（小瓶）","保濕乳液","刮鬍刀","棉棒","隱形眼鏡用品"] },
+  { category: "👜 其他", items: ["環保購物袋","垃圾袋（日本嚴格分類）","睡眠眼罩","頸枕（長途用）","小型雨傘","零食（備用）"] },
+];
+
+// ===== RENDER HOTELS =====
+function renderHotels() {
+  const list = document.getElementById('hotel-list');
+  hotels.forEach(h => {
+    const div = document.createElement('div');
+    div.className = 'hotel-item';
+    div.innerHTML = `<div class="hotel-name">🏨 ${h.name}</div>
+      <div class="hotel-dates">📅 ${h.dates}</div>
+      <div class="hotel-dates" style="margin-top:2px">📍 ${h.note}</div>`;
+    list.appendChild(div);
+  });
+}
+
+// ===== RENDER LUGGAGE =====
+function renderLuggage() {
+  const grid = document.getElementById('luggageGrid');
+  luggage.forEach((cat, ci) => {
+    const card = document.createElement('div');
+    card.className = 'luggage-category';
+    const colors = ['coral','yellow','blue','green'];
+    card.style.borderTopColor = `var(--${colors[ci%4]})`;
+    card.style.borderTopWidth = '6px';
+    card.innerHTML = `<div class="luggage-cat-title">${cat.category}</div>`;
+    cat.items.forEach((item, ii) => {
+      const id = `lug-${ci}-${ii}`;
+      const div = document.createElement('div');
+      div.className = 'luggage-item';
+      div.id = id;
+      div.innerHTML = `<div class="lug-box"></div>${item}`;
+      div.onclick = () => {
+        div.classList.toggle('checked');
+        const state = JSON.parse(localStorage.getItem('lug') || '{}');
+        state[id] = div.classList.contains('checked');
+        localStorage.setItem('lug', JSON.stringify(state));
+      };
+      card.appendChild(div);
+    });
+    grid.appendChild(card);
+  });
+}
+
+// ===== TAG LABEL =====
+function tagLabel(tag) {
+  const map = { flight:'✈ 航班', train:'🚃 電車', car:'🚗 自駕', walk:'🚶 步行', bus:'🚌 巴士' };
+  const cls = { flight:'tag-flight', train:'tag-train', car:'tag-car', walk:'tag-walk', bus:'tag-bus' };
+  return `<span class="tag ${cls[tag]||''}">${map[tag]||tag}</span>`;
+}
+
+// ===== RENDER ITINERARY =====
+function renderItinerary() {
+  const tabs = document.getElementById('dayTabs');
+  const panels = document.getElementById('dayPanels');
+
+  itinerary.forEach((day, i) => {
+    // Tab
+    const tab = document.createElement('button');
+    tab.className = 'day-tab' + (i===0?' active':'');
+    tab.textContent = `${day.date}（${day.dow}）`;
+    tab.onclick = () => switchDay(i);
+    tabs.appendChild(tab);
+
+    // Panel
+    const panel = document.createElement('div');
+    panel.className = 'day-panel' + (i===0?' active':'');
+    panel.id = `panel-${i}`;
+
+    const colorBg = { coral:'#F2A497', yellow:'#F6D27A', blue:'#A8D3E6', green:'#B9DAA5' };
+
+    panel.innerHTML = `
+      <div class="day-header">
+        <div class="day-date-badge" style="background:${colorBg[day.color]||'#F6D27A'}">
+          ${day.year}/${day.date}（${day.dow}）
+        </div>
+        <div class="day-hotel">
+          今晚住宿<br>
+          <span>${day.accommodation}</span>
+        </div>
+      </div>
+      <div class="timeline">
+        ${day.items.map(item => `
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-top">
+                <div class="tl-name">${item.name}</div>
+                ${item.mustGo ? '<span class="must-go">⭐ 必去</span>' : ''}
+                ${item.tags.map(tagLabel).join('')}
+              </div>
+              ${item.note ? `<div class="tl-note">💬 ${item.note}</div>` : ''}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+    panels.appendChild(panel);
+  });
+}
+
+function switchDay(idx) {
+  document.querySelectorAll('.day-tab').forEach((t, i) => {
+    t.classList.toggle('active', i===idx);
+  });
+  document.querySelectorAll('.day-panel').forEach((p, i) => {
+    if (i===idx) {
+      p.classList.add('active');
+    } else {
+      p.classList.remove('active');
+    }
+  });
+  // scroll tab into view
+  document.querySelectorAll('.day-tab')[idx]?.scrollIntoView({ behavior:'smooth', block:'nearest', inline:'center' });
+}
+
+// ===== TOGGLE CHECK =====
+function toggleCheck(el, id) {
+  el.classList.toggle('checked');
+  const state = JSON.parse(localStorage.getItem('todo') || '{}');
+  state[id] = el.classList.contains('checked');
+  localStorage.setItem('todo', JSON.stringify(state));
+}
+
+// ===== RESTORE STATE =====
+function restoreState() {
+  const todo = JSON.parse(localStorage.getItem('todo') || '{}');
+  document.querySelectorAll('#todoList li').forEach(li => {
+    const fn = li.getAttribute('onclick');
+    const m = fn && fn.match(/'(todo-\d+)'/);
+    if (m && todo[m[1]]) li.classList.add('checked');
+  });
+  const lug = JSON.parse(localStorage.getItem('lug') || '{}');
+  Object.entries(lug).forEach(([id, val]) => {
+    if (val) document.getElementById(id)?.classList.add('checked');
+  });
+}
+
+// ===== COUNTDOWN =====
+function updateCountdown() {
+  const departure = new Date('2026-12-23T12:50:00+08:00');
+  const now = new Date();
+  const diff = departure - now;
+  const el = document.getElementById('countdown-num');
+  const unit = document.getElementById('countdown-unit');
+  if (diff <= 0) {
+    el.textContent = '🎉';
+    unit.textContent = '已出發！旅途愉快！';
+    return;
+  }
+  const days = Math.floor(diff / 86400000);
+  const hrs = Math.floor((diff % 86400000) / 3600000);
+  const mins = Math.floor((diff % 3600000) / 60000);
+  if (days > 0) {
+    el.textContent = days;
+    unit.textContent = `天（還有 ${hrs} 小時）`;
+  } else {
+    el.textContent = `${hrs}:${String(mins).padStart(2,'0')}`;
+    unit.textContent = '小時分鐘後出發！';
+  }
+}
+
+// ===== INIT =====
+renderItinerary();
+renderHotels();
+renderLuggage();
+restoreState();
+updateCountdown();
+setInterval(updateCountdown, 60000);
+</script>
+</body>
+</html>
